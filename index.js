@@ -9,7 +9,10 @@ var port = 3900; //Le decimos el pueto q queremos usar para esta aplicacion.
 
 mongoose.set('useFindAndModify', false); // Desactivamos los metodos antiguos de mongoose para usar los nuevos que trae.
 mongoose.Promise = global.Promise; // Es para el funcionamiento interno de mongoose, Esto es para evitar fallos a la hora de conectarnos o a la hora de usar diferentes cosas en mongodb
-mongoose.connect('mongodb://localhost:27017/base_blog',{useNewUrlParser: true}).then(()=>{
+mongoose.connect('mongodb://localhost:27017/base_blog',{
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+}).then(()=>{
 //mongodb://localhost:27017  = Esta seria la url local
 //base_blog                  = Este es el nombre de la base de datos
 //{useNewUrlParser: true})   = Esto nos permite usar nuevos metodos, nuevas funcionalidades de mongoose
